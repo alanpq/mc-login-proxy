@@ -160,7 +160,7 @@ srv.on('login', async function (client) {
             console.error(err)
         });
         client.on('packet', function (data, meta) {
-            if(meta.name == "displayed_recipe") {
+            if(meta.name == "displayed_recipe" || meta.name == "recipe_book") {
                 console.log('fuck this packet')
                 console.log(meta)
                 return;
