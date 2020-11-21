@@ -142,7 +142,10 @@ srv.on('login', async function (client) {
         flags: 0x00
     });
 
-    client.on("error", () => { });
+    client.on("error", (err) => {
+        console.error('client err:')
+        console.error(err)
+    });
 
     client.customAuth = () => {
         const targetClient = mc.createClient({
@@ -153,9 +156,15 @@ srv.on('login', async function (client) {
             version: "1.16.4",
         });
         targetClient.on("error", (err) => { 
+            console.error('targetClient err:')
             console.error(err)
         });
         client.on('packet', function (data, meta) {
+            if(meta.name == "displayed_recipe") {
+                console.log('fuck this packet')
+                console.log(meta)
+                return;
+            }
             if (targetClient.state === states.PLAY && meta.state === states.PLAY) {
                 targetClient.write(meta.name, data);
             }
@@ -167,7 +176,7 @@ srv.on('login', async function (client) {
                     var dim = data.dimension;
                     var wrd = data.worldName;
                     // data.dimension = "minecraft:overworld";
-                    data.worldName = "minecraft:overworld";
+                    // data.worldName = "minecraft:overworld";
 
                     client.write("login", data);
 
@@ -189,13 +198,13 @@ srv.on('login', async function (client) {
                     return;
             }
 
-            //console.log(meta.name);
-
             if (meta.state === states.PLAY && client.state === states.PLAY) {
                 client.write(meta.name, data)
                 if (meta.name === "set_compression") {
                     client.compressionThreshold = data.threshold
                 }
+            } else {
+                console.log(meta.name)
             }
         })
 
