@@ -165,7 +165,7 @@ srv.on('login', async function (client) {
                 if (meta.name == "login") {
                     var dim = data.dimension;
                     var wrd = data.worldName;
-                    data.dimension = "minecraft:overworld";
+                    // data.dimension = "minecraft:overworld";
                     data.worldName = "minecraft:overworld";
 
                     client.write("login", data);
