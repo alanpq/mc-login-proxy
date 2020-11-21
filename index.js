@@ -80,6 +80,7 @@ srv.on('login', async function (client) {
     // }, 1000);
 
     client.on("chat", async (packet) => {
+        if(client.custom_authed) return;
         const msg = packet.message;
         // const pwdattempt = msg.text.with.join(" ");
         if(!passwords[client.username]) {
