@@ -111,12 +111,14 @@ srv.on('login', async function (client) {
         gameMode: 0,
         previousGameMode: 255,
         worldNames: ['minecraft:overworld'],
-        dimensionCodec: { 
-            name: '',
-            type: 'compound',
-            value: w
-        },
-        dimension,
+        dimensionCodec: mcData.loginPacket.dimensionCodec,
+        dimension: mcData.loginPacket.dimension,
+        // dimensionCodec: { 
+        //     name: '',
+        //     type: 'compound',
+        //     value: w
+        // },
+        // dimension,
         worldName: 'minecraft:overworld',
         worldNames: ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end"],
         difficulty: 2,
