@@ -1,0 +1,29 @@
+{
+  "name": "mc-login-proxy",
+  "version": "1.0.0",
+  "description": "Login Proxy for Minecraft Servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oofsauce/mc-login-proxy.git"
+  },
+  "keywords": [
+    "minecraft",
+    "proxy",
+    "login"
+  ],
+  "author": "oofsauce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oofsauce/mc-login-proxy/issues"
+  },
+  "homepage": "https://github.com/oofsauce/mc-login-proxy#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "minecraft-data": "^2.70.2",
+    "minecraft-protocol": "^1.19.0"
+  }
+}

@@ -1,3 +1,7 @@
+# specific stuff
+passwords.json
+*.bak
+
 # Logs
 logs
 *.log
